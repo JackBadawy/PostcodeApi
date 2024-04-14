@@ -16,7 +16,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "postcodes")
 public class PostCodeItem {
 	
 	@Id
@@ -24,7 +24,7 @@ public class PostCodeItem {
 	private Long id;
 	
 	@Column
-	private int postCode;
+	private String postCode;
 	
 	@Column
 	private String suburb;
@@ -49,6 +49,22 @@ public class PostCodeItem {
 	@PreUpdate
 	public void onUpdate() {
 		updatedAt = new Date();
+	}
+
+	public String getPostCode() {
+		return postCode;
+	}
+
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
+	}
+
+	public String getSuburb() {
+		return suburb;
+	}
+
+	public void setSuburb(String suburb) {
+		this.suburb = suburb;
 	}
 
 	
