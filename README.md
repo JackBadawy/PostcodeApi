@@ -2,6 +2,10 @@ Overview
 This api will allow users to enter a post code in a mobile app and get the corresponding suberb and vice versa
 built using Java springboot.
 
+17/04/2024
+
+- implemented new endpoint that allows searching by suburb name or postcode instead of needing to search by id
+
 15/04/2024
 
 - implemened uniqueness validation for postcodes and suburbs using custom annotation

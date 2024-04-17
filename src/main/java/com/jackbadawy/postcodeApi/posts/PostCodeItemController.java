@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -54,6 +55,21 @@ public class PostCodeItemController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 	}
+	
+	@GetMapping("/search")
+    public ResponseEntity<List<PostCodeItem>> getItemsByPostCodeOrSuburb(
+            @RequestParam(required = false) String postCode,
+            @RequestParam(required = false) String suburb) {
+        if (postCode != null) {
+            List<PostCodeItem> items = postCodeItemService.findItemsByPostCode(postCode);
+            return new ResponseEntity<>(items, HttpStatus.OK);
+        } else if (suburb != null) {
+            List<PostCodeItem> items = postCodeItemService.findItemsBySuburb(suburb);
+            return new ResponseEntity<>(items, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 	
 	@PatchMapping("/{id}")
 	public ResponseEntity<PostCodeItem> updateItemById(@Valid @RequestBody UpdatePostCodeItemDTO data, @PathVariable Long id) {

@@ -17,6 +17,14 @@ public class PostCodeItemService {
     @Autowired
     private PostCodeItemRepository repo;
     
+    public List<PostCodeItem> findItemsByPostCode(String postCode) {
+        return repo.findByPostCode(postCode);
+    }
+
+    public List<PostCodeItem> findItemsBySuburb(String suburb) {
+        return repo.findBySuburb(suburb);
+    }
+    
     @Autowired 
     private ModelMapper mapper;
     
