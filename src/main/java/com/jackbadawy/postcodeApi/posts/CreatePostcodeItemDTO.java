@@ -17,6 +17,11 @@ public class CreatePostcodeItemDTO {
 	@Pattern(regexp = "\\d{4}", message = "Postcode must be 4 digits")
 	@Unique(message = "This postcode already exists")
 	private String postcode;
+	
+	public CreatePostcodeItemDTO(String suburb, String postcode) {
+		this.suburb = suburb;
+		this.postcode = postcode;
+	}
 
 	public String getSuburb() {
 		return suburb;
