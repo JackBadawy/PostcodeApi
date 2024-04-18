@@ -1,6 +1,10 @@
 Overview
-This api will allow users to enter a post code in a mobile app and get the corresponding suberb and vice versa
+This api allow users to enter a post code and get the corresponding suberb and vice versa.
 built using Java springboot.
+
+18/04/2024
+
+- implemented test for controller/service
 
 17/04/2024
 
